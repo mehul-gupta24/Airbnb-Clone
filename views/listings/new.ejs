@@ -1,0 +1,48 @@
+<% layout('./layouts/boilerplate') %>
+<div class="row">
+<div class="col-8 offset-3">
+
+    <h3>Create a New Listing</h3>
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="form">
+            <label for="title" class="form-label">Title</label>
+            <input name="title" required placeholder="Enter title" id="" type="text" class="form-control">
+            <div class="valid-feedback">Title looks good</div>
+            <div class="invalid-feedback">Title should be valid</div>
+        </div>
+        <div class="form">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" required placeholder="Enter description" id="" class="form-control"></textarea>
+            <div class="valid-feedback">Description looks good</div>
+            <div class="invalid-feedback">Description should be valid</div>
+        </div>
+        <div class="form">
+            <label for="image" class="form-label">Upload Listing Image</label>
+            <input name="image" required id="" type="file" class="form-control">
+            <div class="valid-feedback">Image looks good</div>
+        </div>
+        <div class="row">
+            <div class="form col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input name="price" required placeholder="Enter price" id="" type="text" class="form-control">
+                <div class="valid-feedback">Price looks good</div>
+                <div class="invalid-feedback">Price should be valid</div>
+            </div>
+            <div class="form col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input name="country" required placeholder="Enter country" id="" type="text" class="form-control">
+                <div class="valid-feedback">Country looks good</div>
+                <div class="invalid-feedback">Country should be valid</div>
+            </div>
+        </div>
+        <div class="form">
+            <label for="location" class="form-label">Location</label>
+            <input name="location" required placeholder="Enter location" id="" type="text" class="form-control">
+            <div class="valid-feedback">Location looks good</div>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <button class="btn btn-dark add-btn">Add</button>
+    </form>
+
+</div>
+</div>

@@ -1,0 +1,128 @@
+<% layout('./layouts/boilerplate') %>
+<body>
+    <style>
+        #filters{
+            display: flex;
+            flex-wrap: nowrap;
+            margin-right: 100px;
+            /* align-items: center; */
+            gap: 2rem;
+            /* background-color: red; */
+            /* justify-content: center;
+            /* margin-top: 2%; */
+        }
+        #filter{
+            /* background-color: yellow; */
+            text-align: center;
+            font-size: 1.2rem;
+            /* margin-top: 1rem; */
+            margin-right: 2rem;
+            opacity: 0.6;
+        }
+        #filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        #filters .switch{
+            /* background-color: red; */
+            /* margin-top: 1rem; */
+            height: 50px;
+            border:1px solid black;
+            border-radius: 1rem;
+            padding:1rem;
+            /* margin-left: 95px; */
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+        .gst{
+            display: none;
+        }
+    </style>
+    <!-- <h3>All Listings</h3> -->
+    <!-- <form action="/listings/new" method="get">
+        <button>Create New Listing</button>
+    </form> -->
+    <div id="filters" >
+        <div id="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-bed"></i>
+            <div>Rooms</div>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-city"></i>
+            <p>Iconic Cities</p>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <div>Beaches</div>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <p>Hills & Mountains</p>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-sitemap"></i>
+            <div>Old Architecture</div>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-tractor"></i>
+            <p>Farms</p>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-gopuram"></i>
+            <div>Temples</div>
+        </div>
+        <div id="filter">
+            <i class="fa-solid fa-binoculars"></i>
+            <p>Camping</p>
+        </div>
+        <div id="filter">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <div>Castle</div>
+        </div>
+        <div class="switch">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">Display taxes</label>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+        <%for(let listing of allListings) {%>
+            <div class="card listing-card" style="width: 20rem;">
+                <a href="/listings/<%=listing._id%>" class="listing-link">
+                    <img class="card-img-top" src="<%= listing.image.url %>" alt="Listing_image">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><%=listing.title%></h5>
+                        <p class="card-text">
+                            &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+
+                            <i class="gst">&nbsp;   +18% GST</i>
+                        </p>
+                        <p></p>
+                        <p> Reviews : <%= listing.reviews.length %></p>
+                        <!-- <p> Owned by : <%= listing.owner.username %></p> -->
+                        <a href="#" class="btn btn-primary">Go somewhere</a>    
+                    </div>
+                </a>
+            </div>
+        <%}%>
+    </div>
+</body>
+
+<script>
+    const taxSwitch = document.querySelector("#switchCheckDefault")
+    const gstTags = document.querySelectorAll(".gst")
+    taxSwitch.addEventListener("click",()=>{
+        for(let gstTag of gstTags){
+            gstTag.style.display = (gstTag.style.display=="inline") ? "none" : "inline";
+        }
+    })
+
+</script>
