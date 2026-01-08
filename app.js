@@ -21,14 +21,14 @@ const userRoute = require('./routes/user.js');
 const listingRoute = require('./routes/listing');
 const reviewsRoute = require('./routes/reviews');
 
-// Connect to MongoDB
-const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust"
+// Connect to DataBase
 const dbUrl = process.env.ATLASDB_URL;
 
 async function main(){
-    await mongoose.connect(dbUrl);
-    console.log("Connected to MongoDB");
+    await mongoose.connect(dbUrl, options);
+    console.log("Connected to Database");
 }
+
 main().then(()=>{
     console.log("MongoDB connection established successfully with wanderlust database");
 }).catch((err)=>{
