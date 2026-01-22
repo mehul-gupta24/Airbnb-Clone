@@ -25,7 +25,7 @@ const reviewsRoute = require('./routes/reviews');
 const dbUrl = process.env.ATLASDB_URL;
 
 async function main(){
-    await mongoose.connect(dbUrl, options);
+    await mongoose.connect(dbUrl);
     console.log("Connected to Database");
 }
 
@@ -140,4 +140,5 @@ app.use((err,req,res,next)=>{
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+    console.log(`${dbUrl}`);
 })
